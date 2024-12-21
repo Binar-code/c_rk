@@ -110,7 +110,11 @@ int matrix_fscan(matrix_t *matrix, FILE *file, int **table)
     }
 
     free(temp_line);
-    return (res == END_OF_FILE) ? OK : res;
+    
+    if (res == END_OF_FILE)
+        return OK;
+    else
+        return res;
 }
 
 
